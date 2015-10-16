@@ -43,6 +43,27 @@ public class PruebaNapakalaki {
 				new ArrayList(Arrays.asList()));
 		Prize pDameargo = new Prize(2,1);
 		monsters.add(new Monster("Dameargo", 1, bcDameargo, pDameargo));
+		
+		// 3 Byakhees de Bonanza
+		BadConsequence bcByakhees = new BadConsequence("Pierdes tu armadura visible y otra oculta.", 0,
+				new ArrayList(Arrays.asList(TreasureKind.ARMOR)),
+				new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
+		Prize pByakhees = new Prize(2, 1);
+		monsters.add(new Monster("3 Byakhees de Bonanza", 8, bcByakhees, pByakhees));
+		
+		// Chibithulhu
+		BadConsequence bcChibi = new BadConsequence("Embobados con el lindo primigenio te descartas de tu casco visible.", 0,
+				new ArrayList(Arrays.asList(TreasureKind.HELMET)),
+				new ArrayList(Arrays.asList()));
+		Prize pChibi = new Prize(1, 1);
+		monsters.add(new Monster("Chibithulhu", 2, bcChibi, pChibi));
+		
+		// El sopor de Dunwich
+		BadConsequence bcDunwich = new BadConsequence("El primordial bostezo contagioso. Pierdes el calzado visible", 0,
+				new ArrayList(Arrays.asList(TreasureKind.SHOES)),
+				new ArrayList(Arrays.asList()));
+		Prize pDunwich = new Prize(1, 1);
+		monsters.add(new Monster("El sopor de Dunwich", 2, bcDunwich, pDunwich));
 	}
 
 }
