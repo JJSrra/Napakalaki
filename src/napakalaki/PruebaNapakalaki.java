@@ -64,6 +64,11 @@ public class PruebaNapakalaki {
 				new ArrayList(Arrays.asList()));
 		Prize pDunwich = new Prize(1, 1);
 		monsters.add(new Monster("El sopor de Dunwich", 2, bcDunwich, pDunwich));
+		
+		// Pollipólipo volante
+		BadConsequence bcPolipo = new BadConsequence("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0);
+		Prize pPolipo = new Prize(1,1);
+		monsters.add(new Monster("Pollipólipo volante", 3, bcPolipo, pPolipo));
 	}
 
 }
