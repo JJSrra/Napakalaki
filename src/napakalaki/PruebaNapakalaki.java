@@ -105,6 +105,35 @@ public class PruebaNapakalaki {
 		BadConsequence bcTinieblas = new BadConsequence("Toses los pulmones y pierdes 2 niveles.", 2, 0, 0);
 		Prize pTinieblas = new Prize(1, 1);
 		monsters.add(new Monster("La que redacta en las tinieblas", 2, bcTinieblas, pTinieblas));
+		
+		// Yskhtihyssg-Goth
+		BadConsequence bcImpronunciable = new BadConsequence("No le hace gracia que pronuncien mal su nombre. Estás muerto.", true);
+		Prize pImpronunciable = new Prize(3, 1);
+		monsters.add(new Monster("Yskhtihyssg-Goth", 12, bcImpronunciable, pImpronunciable));
+		
+		// Familia feliz
+		BadConsequence bcFamilia = new BadConsequence("La familia te atrapa. Estás muerto.", true);
+		Prize pFamilia = new Prize(4, 1);
+		monsters.add(new Monster("Familia feliz", 1, bcFamilia, pFamilia));
+		
+		// Roboggoth
+		BadConsequence bcRoboggoth = new BadConsequence("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro a 2 manos visible", 2,
+				new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)),
+				new ArrayList(Arrays.asList()));
+		Prize pRoboggoth = new Prize(2, 1);
+		monsters.add(new Monster("Roboggoth", 8, bcRoboggoth, pRoboggoth));
+		
+		// El espía
+		BadConsequence bcEspia = new BadConsequence("Te asusta en la noche. Pierdes un casco visible", 0,
+				new ArrayList(Arrays.asList(TreasureKind.HELMET)),
+				new ArrayList(Arrays.asList()));
+		Prize pEspia = new Prize(1, 1);
+		monsters.add(new Monster("El espía", 5, bcEspia, pEspia));
+		
+		// El Lenguas
+		BadConsequence bcLenguas = new BadConsequence("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0);
+		Prize pLenguas = new Prize(1, 1);
+		monsters.add(new Monster("El Lenguas", 20, bcLenguas, pLenguas));
 	}
 
 }
