@@ -17,7 +17,7 @@ public class BadConsequence {
 	private int levels;
 	private int nVisibleTreasures;
 	private int nHiddenTreasures;
-	private boolean death;
+	private boolean death = false;
 	private ArrayList<TreasureKind> specificHiddenTreasures;
 	private ArrayList<TreasureKind> specificVisibleTreasures;
 
