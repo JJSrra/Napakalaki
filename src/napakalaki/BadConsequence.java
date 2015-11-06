@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class BadConsequence {
 
-	final int MAX_TREASURES = 10;
+	static final int MAX_TREASURES = 10;
 	private String text;
 	private int levels;
 	private int nVisibleTreasures;
@@ -46,7 +46,9 @@ public class BadConsequence {
 	}
 	
 	public boolean isEmpty(){
-		return 0;
+		return nVisibleTreasures == 0 && nHiddenTreasures == 0 && 
+				specificVisibleTreasures.isEmpty() && 
+				specificHiddenTreasures.isEmpty();
 	}
 
 	public String getText() {
