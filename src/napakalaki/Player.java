@@ -25,6 +25,7 @@ public class Player {
 	
 	public Player(String name){
 		this.name = name;
+		dead = true;
 		visibleTreasures = new ArrayList<>();
 		hiddenTreasures = new ArrayList<>();
 		pendingBadConsequence = new BadConsequence("", 0, 0, 0);
