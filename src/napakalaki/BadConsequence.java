@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class BadConsequence {
 
-	static final int MAX_TREASURES = 10;
+	static final int MAXTREASURES = 10;
 	private String text;
 	private int levels;
 	private int nVisibleTreasures;
