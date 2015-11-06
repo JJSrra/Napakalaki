@@ -30,6 +30,18 @@ public class Monster {
 	public int getCombatLevel() {
 		return combatLevel;
 	}
+	
+	public BadConsequence getBadConsequence(){
+		return badConsequence;
+	}
+	
+	public int getLevelsGained(){
+		return prize.getLevel();
+	}
+	
+	public int getTreasuresGained(){
+		return prize.getTreasures();
+	}
 
 	@Override
 	public String toString() {
