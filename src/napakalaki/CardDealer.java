@@ -5,6 +5,7 @@
  */
 package napakalaki;
 
+import com.sun.org.apache.xalan.internal.xsltc.trax.TrAXFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -33,7 +34,50 @@ public class CardDealer {
 	}
 	
 	private void initTreasureCardDeck(){
+		// ¡Sí mi amo!
+		unusedTreasures.add(new Treasure("¡Sí mi amo!", 4, TreasureKind.HELMET));
 		
+		// Botas de investigación
+		unusedTreasures.add(new Treasure("Botas de investigación", 3, TreasureKind.SHOES));
+		
+		// Capucha de Cthulhu
+		unusedTreasures.add(new Treasure("Capucha de Cthulhu", 3, TreasureKind.HELMET));
+		
+		// A prueba de babas
+		unusedTreasures.add(new Treasure("A prueba de babas", 2, TreasureKind.ARMOR));
+		
+		// Botas de lluvia ácida
+		unusedTreasures.add(new Treasure("Botas de lluvia ácida", 1, TreasureKind.BOTHHANDS));
+		
+		// Casco minero
+		unusedTreasures.add(new Treasure("Casco minero", 2, TreasureKind.HELMET));
+		
+		// Ametralladora Thompson
+		unusedTreasures.add(new Treasure("Ametralladora Thompson", 4, TreasureKind.BOTHHANDS));
+		
+		// Camiseta de la UGR
+		unusedTreasures.add(new Treasure("Camiseta de la UGR", 1, TreasureKind.ARMOR));
+		
+		// Clavo de raíl ferroviario
+		unusedTreasures.add(new Treasure("Clavo de raíl ferroviario", 3, TreasureKind.ONEHAND));
+		
+		// Lanzallamas
+		unusedTreasures.add(new Treasure("Lanzallamas", 4, TreasureKind.BOTHHANDS));
+		
+		// Necrocomicón
+		unusedTreasures.add(new Treasure("Necrocomicón", 1, TreasureKind.ONEHAND));
+		
+		// Necronomicón
+		unusedTreasures.add(new Treasure("Necronomicón", 5, TreasureKind.BOTHHANDS));
+		
+		// Linterna a 2 manos
+		unusedTreasures.add(new Treasure("Linterna a 2 manos", 3, TreasureKind.BOTHHANDS));
+		
+		// Necrognomicón
+		unusedTreasures.add(new Treasure("Necrognomicón", 2, TreasureKind.ONEHAND));
+		
+		// Necrotelecom
+		unusedTreasures.add(new Treasure("Necrotelecom", 2, TreasureKind.HELMET));
 	}
 	
 	private void initMonsterCardDeck(){
