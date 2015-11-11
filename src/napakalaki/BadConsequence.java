@@ -80,7 +80,7 @@ public class BadConsequence {
 	}	
 
 	public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
-		return 0;
+		return new BadConsequence("", 0, 0, 0);
 	}
 	
 	@Override

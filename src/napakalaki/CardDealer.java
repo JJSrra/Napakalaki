@@ -253,11 +253,11 @@ public class CardDealer {
 	}
 	
 	public Treasure nextTreasure(){
-		return 0;
+		return new Treasure("", 0, TreasureKind.ARMOR);
 	}
 	
 	public Monster nextMonster(){
-		return 0;
+		return new Monster("", 0, null, null);
 	}
 	
 	public void giveTreasureBack(Treasure t){

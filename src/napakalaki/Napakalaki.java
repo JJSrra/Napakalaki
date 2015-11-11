@@ -21,7 +21,7 @@ public class Napakalaki {
 	
 	private Napakalaki() { }
 	
-	public static Napakalki getInstance(){
+	public static Napakalaki getInstance(){
 		return instance;
 	}
 	
@@ -30,11 +30,11 @@ public class Napakalaki {
 	}
 	
 	private Player nextPlayer(){
-		return 0;
+		return new Player("");
 	}
 	
 	private boolean nextTurnAllowed(){
-		return 0;
+		return false;
 	}
 	
 	private void setEnemies(){
@@ -42,7 +42,7 @@ public class Napakalaki {
 	}
 	
 	public CombatResult developCombat(){
-		return 0;
+		return CombatResult.LOSE;
 	}
 	
 	public void discardVisibleTreasures(ArrayList<Treasure> treasures){
@@ -70,10 +70,10 @@ public class Napakalaki {
 	}
 	
 	public boolean nextTurn(){
-		return 0;
+		return false;
 	}
 	
 	public boolean endOfGame(CombatResult result){
-		return 0;
+		return false;
 	}
 }

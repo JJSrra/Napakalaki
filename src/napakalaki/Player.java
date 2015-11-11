@@ -76,7 +76,7 @@ public class Player {
 	}
 	
 	private boolean canMakeTreasureVisible(Treasure t){
-		
+		return false;
 	}
 	
 	private int howManyVisibleTreasures(TreasureKind tKind){
@@ -108,7 +108,7 @@ public class Player {
 	}
 	
 	public CombatResult combat(Monster m){
-		
+		return CombatResult.LOSE;
 	}
 	
 	public void makeTreasureVisible(Treasure t){
@@ -136,7 +136,7 @@ public class Player {
 	}
 	
 	public Treasure stealTreasure(){
-		
+		return new Treasure("", 0, null);
 	}
 	
 	public void setEnemy(Player enemy){
@@ -144,7 +144,7 @@ public class Player {
 	}
 	
 	private Treasure giveMeATreasure(){
-		
+		return new Treasure("", 0, null);
 	}
 	
 	public boolean canISteal(){
