@@ -77,7 +77,15 @@ public class BadConsequence {
 	
 	public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
 		return specificHiddenTreasures;
-	}	
+	}
+	
+	public void substractVisibleTreasure(Treasure t){
+		
+	}
+	
+	public void substractHiddenTreasure(Treasure t){
+		
+	}
 
 	public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
 		return new BadConsequence("", 0, 0, 0);
