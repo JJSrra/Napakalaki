@@ -80,14 +80,19 @@ public class BadConsequence {
 	}
 	
 	public void substractVisibleTreasure(Treasure t){
-		if (specificVisibleTreasures.size() == 0)
-			if (nVisibleTreasures != 0)
-				nVisibleTreasures--;
-		else
+		/* @todo
+		int i = 0;
+		while (i < specificHiddenTreasures.size()){
+			if (t.getType() == specificVisibleTreasures.get(i))
+				specificVisibleTreasures.remove(i);
+			else
+				++i;
+		}
+		*/
 	}
 	
 	public void substractHiddenTreasure(Treasure t){
-		
+		// @todo
 	}
 
 	public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){

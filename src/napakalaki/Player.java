@@ -170,7 +170,7 @@ public class Player {
 	
 	private Treasure giveMeATreasure(){
 		Random rand = new Random();
-		int index = rand.nextInt((hiddenTreasures.size()-1)+1)+1;
+		int index = rand.nextInt(hiddenTreasures.size());
 		return hiddenTreasures.get(index);
 	}
 	
