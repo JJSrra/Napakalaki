@@ -80,7 +80,10 @@ public class BadConsequence {
 	}
 	
 	public void substractVisibleTreasure(Treasure t){
-		
+		if (specificVisibleTreasures.size() == 0)
+			if (nVisibleTreasures != 0)
+				nVisibleTreasures--;
+		else
 	}
 	
 	public void substractHiddenTreasure(Treasure t){
