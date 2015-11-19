@@ -6,6 +6,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -30,11 +31,24 @@ public class Napakalaki {
 	}
 	
 	private Player nextPlayer(){
-		return new Player("");
+		int indice;
+		
+		if (currentPlayer == null){
+			Random rand = new Random();
+			
+			indice = rand.nextInt((players.size() - 1) + 1) + 1;
+		}
+		else{
+			indice = players.indexOf(currentPlayer);
+			indice = (indice + 1) % players.size();
+		}
+		
+		currentPlayer = players.get(indice);
+		return currentPlayer;
 	}
 	
 	private boolean nextTurnAllowed(){
-		return false;
+		return currentPlayer.validState();
 	}
 	
 	private void setEnemies(){
