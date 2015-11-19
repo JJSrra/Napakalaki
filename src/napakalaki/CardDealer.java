@@ -24,8 +24,8 @@ public class CardDealer {
 	private CardDealer() {
 		unusedTreasures = new ArrayList<>();
 		unusedMonsters = new ArrayList<>();
-		usedTreasures = new ArrayList <>();
-		usedMonsters = new ArrayList <>();
+		usedTreasures = new ArrayList<>();
+		usedMonsters = new ArrayList<>();
 	}
 
 	public static CardDealer getInstance() {
@@ -253,11 +253,25 @@ public class CardDealer {
 	}
 	
 	public Treasure nextTreasure(){
-		return new Treasure("", 0, TreasureKind.ARMOR);
+		if (unusedTreasures.isEmpty()){
+			unusedTreasures.addAll(usedTreasures);
+			usedTreasures.clear();
+			
+			shuffleTreasures();
+		}
+		
+		return unusedTreasures.remove(0);
 	}
 	
 	public Monster nextMonster(){
-		return new Monster("", 0, null, null);
+		if (unusedMonsters.isEmpty()){
+			unusedMonsters.addAll(usedMonsters);
+			usedMonsters.clear();
+			
+			shuffleTreasures();
+		}
+		
+		return unusedMonsters.remove(0);
 	}
 	
 	public void giveTreasureBack(Treasure t){
