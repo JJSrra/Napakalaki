@@ -27,7 +27,8 @@ public class Napakalaki {
 	}
 	
 	private void initPlayers(ArrayList<String> names){
-		
+		for (String name : names)
+			players.add(new Player(name));
 	}
 	
 	private Player nextPlayer(){
@@ -88,6 +89,6 @@ public class Napakalaki {
 	}
 	
 	public boolean endOfGame(CombatResult result){
-		return false;
+		return result == CombatResult.WINGAME;
 	}
 }

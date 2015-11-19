@@ -6,6 +6,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -76,7 +77,31 @@ public class Player {
 	}
 	
 	private boolean canMakeTreasureVisible(Treasure t){
-		return false;
+		boolean allowed = true;
+		int onehands = 0;
+		if (t.getType() == TreasureKind.BOTHHANDS){
+			for (Treasure treasures : visibleTreasures){
+				if (treasures.getType() == t.getType() || treasures.getType() == TreasureKind.ONEHAND){
+					allowed = false;
+				}
+			}
+		}else if (t.getType() == TreasureKind.ONEHAND){
+			for (Treasure treasures : visibleTreasures){
+				if (treasures.getType() == TreasureKind.ONEHAND){
+					onehands++;
+				}
+				if (treasures.getType() == TreasureKind.BOTHHANDS || onehands >= 2){
+					allowed = false;
+				}
+			}
+		}else {
+			for (Treasure treasures : visibleTreasures){
+				if (treasures.getType() == t.getType()){
+					allowed = false;
+				}
+			}
+		}
+		return allowed;
 	}
 	
 	private int howManyVisibleTreasures(TreasureKind tKind){
@@ -144,7 +169,9 @@ public class Player {
 	}
 	
 	private Treasure giveMeATreasure(){
-		return new Treasure("", 0, null);
+		Random rand = new Random();
+		int index = rand.nextInt((hiddenTreasures.size()-1)+1)+1;
+		return hiddenTreasures.get(index);
 	}
 	
 	public boolean canISteal(){
