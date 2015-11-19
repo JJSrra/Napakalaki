@@ -81,6 +81,9 @@ public class Napakalaki {
 					abort = true;
 				}
 			}
+			
+			if (!abort)
+				finished = true;
 		}
 		
 		// Asignar el último jugador con el último enemigo
