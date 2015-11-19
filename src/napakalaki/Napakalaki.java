@@ -84,7 +84,8 @@ public class Napakalaki {
 		}
 		
 		// Asignar el último jugador con el último enemigo
-		players.get(arrayPlayers.get(0)).setEnemy(players.get(arrayEnemies.get(0)));
+		players.get(arrayPlayers.get(0))
+				.setEnemy(players.get(arrayEnemies.get(0)));
 	}
 	
 	public CombatResult developCombat(){
