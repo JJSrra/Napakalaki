@@ -98,11 +98,17 @@ public class Napakalaki {
 	}
 	
 	public void discardVisibleTreasures(ArrayList<Treasure> treasures){
-		
+		for (Treasure treasure : treasures){
+			currentPlayer.discardVisibleTreasure(treasure);
+			dealer.giveTreasureBack(treasure);
+		}
 	}
 	
 	public void discardHiddenTreasures(ArrayList<Treasure> treasures){
-		
+		for (Treasure treasure : treasures){
+			currentPlayer.discardHiddenTreasure(treasure);
+			dealer.giveTreasureBack(treasure);
+		}
 	}
 	
 	public void makeTrasuresVisible(ArrayList<Treasure> treasures){
