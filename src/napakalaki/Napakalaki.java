@@ -21,7 +21,9 @@ public class Napakalaki {
 	private Player currentPlayer;
 	private ArrayList<Player> players;
 	
-	private Napakalaki() { }
+	private Napakalaki() {
+		dealer = CardDealer.getInstance();
+	}
 	
 	public static Napakalaki getInstance(){
 		return instance;
@@ -108,7 +110,10 @@ public class Napakalaki {
 	}
 	
 	public void initGame(ArrayList<String> players){
-		
+		initPlayers(players);
+		setEnemies();
+		dealer.initCards();
+		nextTurn();
 	}
 	
 	public Player getCurrentPlayer(){
