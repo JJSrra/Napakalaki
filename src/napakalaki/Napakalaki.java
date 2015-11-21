@@ -112,7 +112,9 @@ public class Napakalaki {
 	}
 	
 	public void makeTrasuresVisible(ArrayList<Treasure> treasures){
-		
+		for (Treasure t : treasures){
+			currentPlayer.makeTreasureVisible(t);
+		}
 	}
 	
 	public void initGame(ArrayList<String> players){
