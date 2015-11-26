@@ -52,7 +52,7 @@ public class Napakalaki {
 	}
 	
 	private boolean nextTurnAllowed(){
-		return currentPlayer.validState();
+		return currentPlayer == null || currentPlayer.validState();
 	}
 	
 	private void setEnemies(){

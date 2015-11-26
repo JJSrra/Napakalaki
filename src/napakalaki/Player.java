@@ -258,11 +258,14 @@ public class Player {
 	}
 	
 	public void discardAllTreasures(){
-		for (Treasure treasure : visibleTreasures){
+		ArrayList<Treasure> visible = new ArrayList(visibleTreasures);
+		ArrayList<Treasure> hidden = new ArrayList(hiddenTreasures);
+
+		for (Treasure treasure : visible){
 			discardVisibleTreasure(treasure);
 		}
 		
-		for (Treasure treasure : hiddenTreasures){
+		for (Treasure treasure : hidden){
 			discardHiddenTreasure(treasure);
 		}
 	}
