@@ -232,7 +232,21 @@ public class Player {
 	}
 	
 	public Treasure stealTreasure(){
-		return new Treasure("", 0, null);
+		boolean canI = canISteal();
+		Treasure treasure = null;
+		
+		if (canI){
+			boolean canYou = enemy.canYouGiveMeATreasure();
+			
+			if (canYou){
+				treasure = enemy.giveMeATreasure();
+				hiddenTreasures.add(treasure);
+				
+				haveStolen();
+			}
+		}
+		
+		return treasure;
 	}
 	
 	public void setEnemy(Player enemy){
