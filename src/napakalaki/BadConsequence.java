@@ -36,6 +36,12 @@ public class BadConsequence {
 		this.specificHiddenTreasures = new ArrayList();
 		this.text = text;
 		this.death = death;
+		
+		if (death){
+			levels = Player.MAXLEVEL;
+			nVisibleTreasures = MAXTREASURES;
+			nHiddenTreasures = MAXTREASURES;
+		}
 	}
 
 	public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden) {
