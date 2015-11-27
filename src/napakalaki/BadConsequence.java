@@ -100,7 +100,36 @@ public class BadConsequence {
 	}
 
 	public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
-		return new BadConsequence("", 0, 0, 0);
+		int nVisible, nHidden;
+		BadConsequence bc;
+		
+		// Si no hay tesoros específicos
+		if (specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
+			if (v.size() < nVisibleTreasures)
+				nVisible = v.size();
+			else
+				nVisible = nVisibleTreasures;
+			
+			if (h.size() < nHiddenTreasures)
+				nHidden = h.size();
+			else
+				nHidden = nHiddenTreasures;
+			
+			// Crear el mal rollo
+			bc = new BadConsequence(text, levels, nVisible, nHidden);
+		}
+		else{
+			// Si hay tesoros específicos, bc debe llevar la intersección
+			ArrayList<TreasureKind> auxVisible = new ArrayList(v);
+			ArrayList<TreasureKind> auxHidden = new ArrayList(h);
+			
+			auxVisible.retainAll(specificVisibleTreasures);
+			auxHidden.retainAll(specificHiddenTreasures);
+			
+			bc = new BadConsequence(text, levels, auxVisible, auxHidden);
+		}
+		
+		return bc;
 	}
 	
 	@Override
