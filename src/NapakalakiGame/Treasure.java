@@ -32,4 +32,9 @@ public class Treasure {
 	public TreasureKind getType(){
 		return type;
 	}
+	
+	@Override
+	public String toString(){
+		return name + " +" + bonus + ", Tipo: " + type;
+	}
 }

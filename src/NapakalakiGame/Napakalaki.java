@@ -23,6 +23,7 @@ public class Napakalaki {
 	
 	private Napakalaki() {
 		dealer = CardDealer.getInstance();
+		players = new ArrayList<>();
 	}
 	
 	public static Napakalaki getInstance(){
@@ -40,7 +41,7 @@ public class Napakalaki {
 		if (currentPlayer == null){
 			Random rand = new Random();
 			
-			indice = rand.nextInt((players.size() - 1) + 1) + 1;
+			indice = rand.nextInt(players.size());
 		}
 		else{
 			indice = players.indexOf(currentPlayer);
@@ -61,8 +62,8 @@ public class Napakalaki {
 		boolean abort, finished = false;
 		
 		for (int i = 0; i < players.size(); ++i){
-			arrayPlayers.set(i, i);
-			arrayEnemies.set(i, i);
+			arrayPlayers.add(i);
+			arrayEnemies.add(i);
 		}
 		
 		while (!finished){

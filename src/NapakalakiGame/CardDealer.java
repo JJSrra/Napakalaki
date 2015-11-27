@@ -125,6 +125,8 @@ public class CardDealer {
 		
 		// Zapato deja-amigos
 		unusedTreasures.add(new Treasure("Zapato deja-amigos", 1, TreasureKind.SHOES));
+		
+		shuffleTreasures();
 	}
 	
 	private void initMonsterCardDeck(){
@@ -242,6 +244,8 @@ public class CardDealer {
 		BadConsequence bcLenguas = new BadConsequence("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0);
 		Prize pLenguas = new Prize(1, 1);
 		unusedMonsters.add(new Monster("El Lenguas", 20, bcLenguas, pLenguas));
+		
+		shuffleMonsters();
 	}
 	
 	private void shuffleTreasures(){

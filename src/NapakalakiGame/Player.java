@@ -283,4 +283,9 @@ public class Player {
 			discardHiddenTreasure(treasure);
 		}
 	}
+	
+	@Override
+	public String toString(){
+		return name + ", Nivel: " + level;
+	}
 }
