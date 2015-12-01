@@ -264,10 +264,7 @@ public class CardDealer {
 			shuffleTreasures();
 		}
 		
-		Treasure siguiente = unusedTreasures.remove(0);
-		usedTreasures.add(siguiente);
-		
-		return siguiente;
+		return unusedTreasures.remove(0);
 	}
 	
 	public Monster nextMonster(){
