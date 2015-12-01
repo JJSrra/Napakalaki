@@ -38,7 +38,8 @@ public class Player {
 	}
 	
 	private void bringToLife(){
-		dead = true;
+		dead = false;
+		level = 1;
 	}
 	
 	private int getCombatLevel(){
