@@ -120,8 +120,14 @@ public class BadConsequence {
 		}
 		else{
 			// Si hay tesoros específicos, bc debe llevar la intersección
-			ArrayList<TreasureKind> auxVisible = new ArrayList(v);
-			ArrayList<TreasureKind> auxHidden = new ArrayList(h);
+			ArrayList<TreasureKind> auxVisible = new ArrayList();
+			ArrayList<TreasureKind> auxHidden = new ArrayList();
+			
+			for (Treasure treasure : v)
+				auxVisible.add(treasure.getType());
+			
+			for (Treasure treasure : h)
+				auxHidden.add(treasure.getType());
 			
 			auxVisible.retainAll(specificVisibleTreasures);
 			auxHidden.retainAll(specificHiddenTreasures);
