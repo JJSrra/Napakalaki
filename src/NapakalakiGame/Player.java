@@ -30,6 +30,7 @@ public class Player {
 		visibleTreasures = new ArrayList<>();
 		hiddenTreasures = new ArrayList<>();
 		pendingBadConsequence = new BadConsequence("", 0, 0, 0);
+		level = 1;
 	}
 	
 	public String getName(){
@@ -60,8 +61,8 @@ public class Player {
 	private void decrementLevels(int l){
 		level -= l;
 		
-		if (level < 0)
-			level = 0;
+		if (level < 1)
+			level = 1;
 	}
 	
 	private void setPendingBadConsequence(BadConsequence b){
