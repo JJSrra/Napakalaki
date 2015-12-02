@@ -122,15 +122,27 @@ public class BadConsequence {
 			// Si hay tesoros específicos, bc debe llevar la intersección
 			ArrayList<TreasureKind> auxVisible = new ArrayList();
 			ArrayList<TreasureKind> auxHidden = new ArrayList();
+			ArrayList<TreasureKind> specificV = new ArrayList(specificVisibleTreasures);
+			ArrayList<TreasureKind> specificH = new ArrayList(specificHiddenTreasures);
 			
-			for (Treasure treasure : v)
-				auxVisible.add(treasure.getType());
+			int index;
+			for (Treasure treasure : v){
+				index = specificV.indexOf(treasure.getType());
+				
+				if (index != -1){
+					auxVisible.add(treasure.getType());
+					specificV.remove(index);
+				}
+			}
 			
-			for (Treasure treasure : h)
-				auxHidden.add(treasure.getType());
-			
-			auxVisible.retainAll(specificVisibleTreasures);
-			auxHidden.retainAll(specificHiddenTreasures);
+			for (Treasure treasure : h){
+				index = specificH.indexOf(treasure.getType());
+				
+				if (index != -1){
+					auxHidden.add(treasure.getType());
+					specificH.remove(index);
+				}
+			}
 			
 			bc = new BadConsequence(text, levels, auxVisible, auxHidden);
 		}
