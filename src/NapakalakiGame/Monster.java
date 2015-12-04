@@ -45,10 +45,10 @@ public class Monster {
 
 	@Override
 	public String toString() {
-		return "Name = " + name
-				+ ", Level = " + Integer.toString(combatLevel)
-				+ ", Prize = {" + prize.toString()
-				+ "}, Bad Consequence = {" + badConsequence.toString()
+		return "Nombre = " + name
+				+ ", \nNivel = " + Integer.toString(combatLevel)
+				+ ", \nBuen rollo = {" + prize.toString()
+				+ "}, \nMal rollo = {" + badConsequence.toString()
 				+ "}";
 	}
 }
