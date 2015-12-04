@@ -9,10 +9,16 @@ package NapakalakiGame;
  *
  * @author diego
  */
-public enum CombatResult {
+public class Cultist {
+	private String name;
+	private int gainedLevels;
 	
-	WINGAME,
-	WIN,
-	LOSE,
-	LOSEANDCONVERT
+	public Cultist(String name, int gainedLevels){
+		this.name = name;
+		this.gainedLevels = gainedLevels;
+	}
+	
+	public int getGainedLevels(){
+		return gainedLevels;
+	}
 }

@@ -19,7 +19,7 @@ public class Player {
 	private int level;
 	private boolean dead;
 	private boolean canISteal;
-	private Player enemy;
+	protected Player enemy;
 	private ArrayList<Treasure> visibleTreasures;
 	private ArrayList<Treasure> hiddenTreasures;
 	private BadConsequence pendingBadConsequence;
@@ -33,6 +33,17 @@ public class Player {
 		level = 1;
 	}
 	
+	public Player(Player p){
+		name = p.name;
+		level = p.level;
+		dead = p.dead;
+		canISteal = p.canISteal;
+		enemy = p.enemy;
+		visibleTreasures = p.visibleTreasures;
+		hiddenTreasures = p.hiddenTreasures;
+		pendingBadConsequence = p.pendingBadConsequence;
+	}
+	
 	public String getName(){
 		return name;
 	}
@@ -42,7 +53,7 @@ public class Player {
 		level = 1;
 	}
 	
-	private int getCombatLevel(){
+	protected int getCombatLevel(){
 		int l = level;
 		
 		for (Treasure t : visibleTreasures){
@@ -50,6 +61,16 @@ public class Player {
 		}
 		
 		return l;
+	}
+	
+	protected int getOponentLevel(Monster m){
+		return m.getCombatLevel();
+	}
+	
+	protected boolean shouldConvert(){
+		Dice dice = Dice.getInstance();
+		
+		return dice.nextNumber() == 1;
 	}
 	
 	private void incrementLevels(int l){
