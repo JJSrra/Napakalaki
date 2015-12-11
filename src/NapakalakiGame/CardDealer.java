@@ -133,76 +133,76 @@ public class CardDealer {
 	
 	private void initMonsterCardDeck(){
 		// Bicéfalo
-		BadReference bcBicefalo = new BadReference("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.", 3,
+		SpecificBadConsequence bcBicefalo = new SpecificBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.", 3,
 				new ArrayList(Arrays.asList(TreasureKind.ONEHAND, TreasureKind.ONEHAND, TreasureKind.BOTHHANDS)),
 				new ArrayList(Arrays.asList()));
 		Prize pBicefalo = new Prize(1, 1);
 		unusedMonsters.add(new Monster("Bicéfalo", 20, bcBicefalo, pBicefalo));
 
 		// Los hondos
-		BadReference bcHondos = new BadReference("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.", true);
+		DeathBadConsequence bcHondos = new DeathBadConsequence("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.");
 		Prize pHondos = new Prize(2, 1);
 		unusedMonsters.add(new Monster("Los hondos", 8, bcHondos, pHondos));
 
 		// Semillas Cthulhu
-		BadReference bcSemillas = new BadReference("Pierdes 2 niveles y 2 tesoros ocultos.", 2, 0, 2);
+		NumericBadConsequence bcSemillas = new NumericBadConsequence("Pierdes 2 niveles y 2 tesoros ocultos.", 2, 0, 2);
 		Prize pSemillas = new Prize(2, 1);
 		unusedMonsters.add(new Monster("Semillas Cthulhu", 4, bcSemillas, pSemillas));
 
 		// Dameargo
-		BadReference bcDameargo = new BadReference("Te intentas escaquear. Pierdes una mano visible.", 0,
+		SpecificBadConsequence bcDameargo = new SpecificBadConsequence("Te intentas escaquear. Pierdes una mano visible.", 0,
 				new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),
 				new ArrayList(Arrays.asList()));
 		Prize pDameargo = new Prize(2, 1);
 		unusedMonsters.add(new Monster("Dameargo", 1, bcDameargo, pDameargo));
 
 		// 3 Byakhees de Bonanza
-		BadReference bcByakhees = new BadReference("Pierdes tu armadura visible y otra oculta.", 0,
+		SpecificBadConsequence bcByakhees = new SpecificBadConsequence("Pierdes tu armadura visible y otra oculta.", 0,
 				new ArrayList(Arrays.asList(TreasureKind.ARMOR)),
 				new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
 		Prize pByakhees = new Prize(2, 1);
 		unusedMonsters.add(new Monster("3 Byakhees de Bonanza", 8, bcByakhees, pByakhees));
 
 		// Chibithulhu
-		BadReference bcChibi = new BadReference("Embobados con el lindo primigenio te descartas de tu casco visible.", 0,
+		SpecificBadConsequence bcChibi = new SpecificBadConsequence("Embobados con el lindo primigenio te descartas de tu casco visible.", 0,
 				new ArrayList(Arrays.asList(TreasureKind.HELMET)),
 				new ArrayList(Arrays.asList()));
 		Prize pChibi = new Prize(1, 1);
 		unusedMonsters.add(new Monster("Chibithulhu", 2, bcChibi, pChibi));
 
 		// El sopor de Dunwich
-		BadReference bcDunwich = new BadReference("El primordial bostezo contagioso. Pierdes el calzado visible.", 0,
+		SpecificBadConsequence bcDunwich = new SpecificBadConsequence("El primordial bostezo contagioso. Pierdes el calzado visible.", 0,
 				new ArrayList(Arrays.asList(TreasureKind.SHOES)),
 				new ArrayList(Arrays.asList()));
 		Prize pDunwich = new Prize(1, 1);
 		unusedMonsters.add(new Monster("El sopor de Dunwich", 2, bcDunwich, pDunwich));
 
 		// Pollipólipo volante
-		BadReference bcPolipo = new BadReference("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0);
+		NumericBadConsequence bcPolipo = new NumericBadConsequence("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0);
 		Prize pPolipo = new Prize(1, 1);
 		unusedMonsters.add(new Monster("Pollipólipo volante", 3, bcPolipo, pPolipo));
 
 		// Ángeles de la noche ibicenca
-		BadReference bcIbicenca = new BadReference("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta.", 0,
+		SpecificBadConsequence bcIbicenca = new SpecificBadConsequence("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta.", 0,
 				new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),
 				new ArrayList(Arrays.asList(TreasureKind.ONEHAND)));
 		Prize pIbicenca = new Prize(4, 1);
 		unusedMonsters.add(new Monster("Ángeles de la noche ibicenca", 14, bcIbicenca, pIbicenca));
 
 		// El gorrón en el umbral
-		BadReference bcGorron = new BadReference("Pierdes todos tus tesoros visibles.", 0, BadReference.MAXTREASURES, 0);
+		NumericBadConsequence bcGorron = new NumericBadConsequence("Pierdes todos tus tesoros visibles.", 0, BadReference.MAXTREASURES, 0);
 		Prize pGorron = new Prize(3, 1);
 		unusedMonsters.add(new Monster("El gorrón en el umbral", 10, bcGorron, pGorron));
 
 		// H.P. Munchcraft
-		BadReference bcMunchcraft = new BadReference("Pierdes la armadura visible.", 0,
+		SpecificBadConsequence bcMunchcraft = new SpecificBadConsequence("Pierdes la armadura visible.", 0,
 				new ArrayList(Arrays.asList(TreasureKind.ARMOR)),
 				new ArrayList(Arrays.asList()));
 		Prize pMunchcraft = new Prize(2, 1);
 		unusedMonsters.add(new Monster("H.P. Munchcraft", 6, bcMunchcraft, pMunchcraft));
 
 		// Bichgooth
-		BadReference bcBichgooth = new BadReference("Sientes bichos bajo la ropa. Descarta la armadura visible.", 0,
+		SpecificBadConsequence bcBichgooth = new SpecificBadConsequence("Sientes bichos bajo la ropa. Descarta la armadura visible.", 0,
 				new ArrayList(Arrays.asList(TreasureKind.ARMOR)),
 				new ArrayList(Arrays.asList()));
 		Prize pBichgooth = new Prize(1, 1);
