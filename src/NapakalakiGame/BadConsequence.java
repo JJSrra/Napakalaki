@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public abstract class BadConsequence {
 	
 	static final int MAXTREASURES = 10;
-	private String text;
-	private int levels;
+	protected String text;
+	protected int levels;
 	
 	public String getText(){
 		return text;
