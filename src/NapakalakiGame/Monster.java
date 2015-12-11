@@ -15,9 +15,9 @@ public class Monster {
 	private int combatLevel;
 	private int levelChangeAgainstCultistPlayer;
 	private Prize prize;
-	private BadConsequence badConsequence;
+	private BadReference badConsequence;
 
-	public Monster(String name, int level, BadConsequence bc, Prize prize) {
+	public Monster(String name, int level, BadReference bc, Prize prize) {
 		this.name = name;
 		this.combatLevel = level;
 		this.badConsequence = bc;
@@ -25,7 +25,7 @@ public class Monster {
 		levelChangeAgainstCultistPlayer = 0;
 	}
 	
-	public Monster(String name, int level, BadConsequence bc, Prize prize, int lc){
+	public Monster(String name, int level, BadReference bc, Prize prize, int lc){
 		this.name = name;
 		this.combatLevel = level;
 		this.badConsequence = bc;
@@ -45,7 +45,7 @@ public class Monster {
 		return combatLevel + levelChangeAgainstCultistPlayer;
 	}
 	
-	public BadConsequence getBadConsequence(){
+	public BadReference getBadConsequence(){
 		return badConsequence;
 	}
 	

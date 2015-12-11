@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Diego, Juanjo
  */
-public class BadConsequence {
+public class BadReference {
 
 	static final int MAXTREASURES = 10;
 	private String text;
@@ -22,7 +22,7 @@ public class BadConsequence {
 	private ArrayList<TreasureKind> specificHiddenTreasures;
 	private ArrayList<TreasureKind> specificVisibleTreasures;
 
-	public BadConsequence(String text, int levels, int nVisible, int nHidden) {
+	public BadReference(String text, int levels, int nVisible, int nHidden) {
 		this.specificVisibleTreasures = new ArrayList();
 		this.specificHiddenTreasures = new ArrayList();
 		this.text = text;
@@ -31,7 +31,7 @@ public class BadConsequence {
 		nHiddenTreasures = nHidden;
 	}
 
-	public BadConsequence(String text, boolean death) {
+	public BadReference(String text, boolean death) {
 		this.specificVisibleTreasures = new ArrayList();
 		this.specificHiddenTreasures = new ArrayList();
 		this.text = text;
@@ -44,7 +44,7 @@ public class BadConsequence {
 		}
 	}
 
-	public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden) {
+	public BadReference(String text, int levels, ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden) {
 		this.text = text;
 		this.levels = levels;
 		this.specificVisibleTreasures = tVisible;
@@ -99,9 +99,9 @@ public class BadConsequence {
 			specificHiddenTreasures.remove(t.getType());
 	}
 
-	public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
+	public BadReference adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
 		int nVisible, nHidden;
-		BadConsequence bc;
+		BadReference bc;
 		
 		// Si no hay tesoros específicos
 		if (specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
@@ -116,7 +116,7 @@ public class BadConsequence {
 				nHidden = nHiddenTreasures;
 			
 			// Crear el mal rollo
-			bc = new BadConsequence(text, levels, nVisible, nHidden);
+			bc = new BadReference(text, levels, nVisible, nHidden);
 		}
 		else{
 			// Si hay tesoros específicos, bc debe llevar la intersección
@@ -144,7 +144,7 @@ public class BadConsequence {
 				}
 			}
 			
-			bc = new BadConsequence(text, levels, auxVisible, auxHidden);
+			bc = new BadReference(text, levels, auxVisible, auxHidden);
 		}
 		
 		return bc;

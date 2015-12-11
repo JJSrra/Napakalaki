@@ -22,14 +22,14 @@ public class Player {
 	protected Player enemy;
 	private ArrayList<Treasure> visibleTreasures;
 	private ArrayList<Treasure> hiddenTreasures;
-	private BadConsequence pendingBadConsequence;
+	private BadReference pendingBadConsequence;
 	
 	public Player(String name){
 		this.name = name;
 		dead = true;
 		visibleTreasures = new ArrayList<>();
 		hiddenTreasures = new ArrayList<>();
-		pendingBadConsequence = new BadConsequence("", 0, 0, 0);
+		pendingBadConsequence = new BadReference("", 0, 0, 0);
 		level = 1;
 	}
 	
@@ -87,7 +87,7 @@ public class Player {
 			level = 1;
 	}
 	
-	private void setPendingBadConsequence(BadConsequence b){
+	private void setPendingBadConsequence(BadReference b){
 		pendingBadConsequence = b;
 	}
 	
@@ -109,12 +109,12 @@ public class Player {
 	}
 	
 	private void applyBadConsequence(Monster m){
-		BadConsequence badConsequence = m.getBadConsequence();
+		BadReference badConsequence = m.getBadConsequence();
 		int nLevels = badConsequence.getLevels();
 		
 		decrementLevels(nLevels);
 		
-		BadConsequence pendingBad = badConsequence.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures);
+		BadReference pendingBad = badConsequence.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures);
 		setPendingBadConsequence(pendingBad);
 	}
 	
