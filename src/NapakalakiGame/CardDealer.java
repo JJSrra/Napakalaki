@@ -209,69 +209,69 @@ public class CardDealer {
 		unusedMonsters.add(new Monster("Bichgooth", 2, bcBichgooth, pBichgooth));
 
 		// El rey rosa
-		BadReference bcReyRosa = new BadReference("Pierdes 5 niveles y 3 tesoros visibles.", 5, 3, 0);
+		NumericBadConsequence bcReyRosa = new NumericBadConsequence("Pierdes 5 niveles y 3 tesoros visibles.", 5, 3, 0);
 		Prize pReyRosa = new Prize(4, 2);
 		unusedMonsters.add(new Monster("El rey de rosa", 13, bcReyRosa, pReyRosa));
 
 		// La que redacta en las tinieblas
-		BadReference bcTinieblas = new BadReference("Toses los pulmones y pierdes 2 niveles.", 2, 0, 0);
+		NumericBadConsequence bcTinieblas = new NumericBadConsequence("Toses los pulmones y pierdes 2 niveles.", 2, 0, 0);
 		Prize pTinieblas = new Prize(1, 1);
 		unusedMonsters.add(new Monster("La que redacta en las tinieblas", 2, bcTinieblas, pTinieblas));
 
 		// Yskhtihyssg-Goth
-		BadReference bcImpronunciable = new BadReference("No le hace gracia que pronuncien mal su nombre. Estás muerto.", true);
+		DeathBadConsequence bcImpronunciable = new DeathBadConsequence("No le hace gracia que pronuncien mal su nombre. Estás muerto.");
 		Prize pImpronunciable = new Prize(3, 1);
 		unusedMonsters.add(new Monster("Yskhtihyssg-Goth", 12, bcImpronunciable, pImpronunciable));
 
 		// Familia feliz
-		BadReference bcFamilia = new BadReference("La familia te atrapa. Estás muerto.", true);
+		DeathBadConsequence bcFamilia = new DeathBadConsequence("La familia te atrapa. Estás muerto.");
 		Prize pFamilia = new Prize(4, 1);
 		unusedMonsters.add(new Monster("Familia feliz", 1, bcFamilia, pFamilia));
 
 		// Roboggoth
-		BadReference bcRoboggoth = new BadReference("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro a 2 manos visible", 2,
+		SpecificBadConsequence bcRoboggoth = new SpecificBadConsequence("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro a 2 manos visible", 2,
 				new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)),
 				new ArrayList(Arrays.asList()));
 		Prize pRoboggoth = new Prize(2, 1);
 		unusedMonsters.add(new Monster("Roboggoth", 8, bcRoboggoth, pRoboggoth));
 
 		// El espía
-		BadReference bcEspia = new BadReference("Te asusta en la noche. Pierdes un casco visible", 0,
+		SpecificBadConsequence bcEspia = new SpecificBadConsequence("Te asusta en la noche. Pierdes un casco visible", 0,
 				new ArrayList(Arrays.asList(TreasureKind.HELMET)),
 				new ArrayList(Arrays.asList()));
 		Prize pEspia = new Prize(1, 1);
 		unusedMonsters.add(new Monster("El espía", 5, bcEspia, pEspia));
 
 		// El Lenguas
-		BadReference bcLenguas = new BadReference("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0);
+		NumericBadConsequence bcLenguas = new NumericBadConsequence("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0);
 		Prize pLenguas = new Prize(1, 1);
 		unusedMonsters.add(new Monster("El Lenguas", 20, bcLenguas, pLenguas));
 		
 		// Indecible e impronunciable
-		BadReference bcIndecible = new BadReference("Pierdes 1 mano visible.", 0,
+		SpecificBadConsequence bcIndecible = new SpecificBadConsequence("Pierdes 1 mano visible.", 0,
 				new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),
 				new ArrayList(Arrays.asList()));
 		Prize pIndecible = new Prize(3, 1);
 		unusedMonsters.add(new Monster("El mal indecible impronunciable", 10, bcIndecible, pIndecible, -2));
 		
 		// Testigos oculares
-		BadReference bcOculares = new BadReference("Pierdes todos tus tesoros visibles. Jajaja.", 0,
+		NumericBadConsequence bcOculares = new NumericBadConsequence("Pierdes todos tus tesoros visibles. Jajaja.", 0,
 				BadReference.MAXTREASURES, 0);
 		Prize pOculares = new Prize(2, 1);
 		unusedMonsters.add(new Monster("Testigos Oculares", 6, bcOculares, pOculares, 2));
 		
 		// El gran cthulhu
-		BadReference bcGranCthulhu = new BadReference("Hoy no es tu día de suerte. Mueres.", true);
+		DeathBadConsequence bcGranCthulhu = new DeathBadConsequence("Hoy no es tu día de suerte. Mueres.");
 		Prize pGranCthulhu = new Prize(2, 5);
 		unusedMonsters.add(new Monster("El gran Cthulhu", 20, bcGranCthulhu, pGranCthulhu, 4));
 		
 		// Serpiente Político
-		BadReference bcPolitico = new BadReference("Tu gobierno te recorta 2 niveles", 2, 0, 0);
+		NumericBadConsequence bcPolitico = new NumericBadConsequence("Tu gobierno te recorta 2 niveles", 2, 0, 0);
 		Prize pPolitico = new Prize(2, 1);
 		unusedMonsters.add(new Monster("Serpiente Político", 8, bcPolitico, pPolitico, -2));
 		
 		// Felpuggoth
-		BadReference bcFelpuggoth = new BadReference("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0,
+		SpecificBadConsequence bcFelpuggoth = new SpecificBadConsequence("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0,
 				new ArrayList(Arrays.asList(TreasureKind.HELMET, TreasureKind.ARMOR)),
 				new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS, TreasureKind.BOTHHANDS, TreasureKind.BOTHHANDS, TreasureKind.BOTHHANDS,
 						TreasureKind.ONEHAND, TreasureKind.ONEHAND, TreasureKind.ONEHAND, TreasureKind.ONEHAND)));
@@ -279,12 +279,12 @@ public class CardDealer {
 		unusedMonsters.add(new Monster("Felpuggoth", 2, bcFelpuggoth, pFelpuggoth, 5));
 		
 		// Shoggoth
-		BadReference bcShoggoth = new BadReference("Pierdes 2 niveles", 2, 0, 0);
+		NumericBadConsequence bcShoggoth = new NumericBadConsequence("Pierdes 2 niveles", 2, 0, 0);
 		Prize pShoggoth = new Prize(4, 2);
 		unusedMonsters.add(new Monster("Shoggoth", 16, bcShoggoth, pShoggoth, -4));
 		
 		// Lolitagooth
-		BadReference bcLolita = new BadReference("Pintalabios negro. Pierdes 2 niveles", 2, 0, 0);
+		NumericBadConsequence bcLolita = new NumericBadConsequence("Pintalabios negro. Pierdes 2 niveles", 2, 0, 0);
 		Prize pLolita = new Prize(1, 1);
 		unusedMonsters.add(new Monster("Lolitagooth", 2, bcLolita, pLolita, 3));
 		
