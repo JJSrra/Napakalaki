@@ -48,6 +48,10 @@ public class Player {
 		return name;
 	}
 	
+	protected Player getEnemy(){
+		return enemy;
+	}
+	
 	private void bringToLife(){
 		dead = false;
 		level = 1;
@@ -276,7 +280,7 @@ public class Player {
 		this.enemy = enemy;
 	}
 	
-	private Treasure giveMeATreasure(){
+	protected Treasure giveMeATreasure(){
 		Random rand = new Random();
 		int index = rand.nextInt(hiddenTreasures.size());
 		return hiddenTreasures.get(index);
@@ -286,7 +290,7 @@ public class Player {
 		return canISteal;
 	}
 	
-	private boolean canYouGiveMeATreasure(){
+	protected boolean canYouGiveMeATreasure(){
 		return !hiddenTreasures.isEmpty();
 	}
 	
