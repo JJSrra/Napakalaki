@@ -29,7 +29,7 @@ public class Player {
 		dead = true;
 		visibleTreasures = new ArrayList<>();
 		hiddenTreasures = new ArrayList<>();
-		pendingBadConsequence = new BadConsequence("", 0, 0, 0);
+		pendingBadConsequence = new NumericBadConsequence("",0,0,0); // BC vacía
 		level = 1;
 	}
 	
