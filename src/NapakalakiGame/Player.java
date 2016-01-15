@@ -193,7 +193,11 @@ public class Player {
 		}
 		else{
 			applyBadConsequence(m);
-			combatResult = CombatResult.LOSE;
+			
+			if (shouldConvert())
+				combatResult = CombatResult.LOSEANDCONVERT;
+			else
+				combatResult = CombatResult.LOSE;
 		}
 		
 		return combatResult;

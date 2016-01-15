@@ -95,7 +95,18 @@ public class Napakalaki {
 	}
 	
 	public CombatResult developCombat(){
-		return currentPlayer.combat(currentMonster);
+		CombatResult result = currentPlayer.combat(currentMonster);
+		
+		if (result == CombatResult.LOSEANDCONVERT){
+			Cultist cultist = dealer.nextCultist();
+			CultistPlayer convertedPlayer = new CultistPlayer(currentPlayer, cultist);
+			
+			// Actualizar los jugadores
+			players.set(players.indexOf(currentPlayer), convertedPlayer);
+			currentPlayer = convertedPlayer;
+		}
+		
+		return result;
 	}
 	
 	public void discardVisibleTreasures(ArrayList<Treasure> treasures){
