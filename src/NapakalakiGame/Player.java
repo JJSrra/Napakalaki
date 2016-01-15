@@ -7,6 +7,7 @@ package NapakalakiGame;
 
 import java.util.ArrayList;
 import java.util.Random;
+import GUI.Dice;
 
 /**
  *
