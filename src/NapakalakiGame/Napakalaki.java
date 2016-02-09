@@ -70,7 +70,7 @@ public class Napakalaki {
 			Collections.shuffle(arrayEnemies);
 			
 			abort = false;
-			for (int i = 0; i < players.size() - 1 && !abort; ++i){
+			for (int i = 0; i < arrayPlayers.size() - 1 && !abort; ++i){
 				if (!finished
 						&& arrayPlayers.get(i)   != arrayEnemies.get(i)
 						&& arrayPlayers.get(i+1) != arrayEnemies.get(i+1)){
