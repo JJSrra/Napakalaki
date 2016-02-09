@@ -17,7 +17,7 @@ import javax.swing.JScrollPane;
  */
 public class PlayerView extends javax.swing.JPanel {
 	
-	Player playerModel;
+	private Player playerModel;
 	
 	public void setPlayer(Player player){
 		playerModel = player;
