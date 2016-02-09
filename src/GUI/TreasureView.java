@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
  */
 public class TreasureView extends javax.swing.JPanel {
 
-	Treasure treasureModel;
+	private Treasure treasureModel;
 	
 	/**
 	 * Creates new form TreasureView

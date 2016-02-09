@@ -13,7 +13,7 @@ import NapakalakiGame.Napakalaki;
  */
 public class NapakalakiView extends javax.swing.JFrame {
 
-	Napakalaki napakalakiModel;
+	private Napakalaki napakalakiModel;
 	/**
 	 * Creates new form NapakalakiView
 	 */
