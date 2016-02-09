@@ -49,7 +49,7 @@ public class Player {
 		return name;
 	}
 	
-	protected Player getEnemy(){
+	public Player getEnemy(){
 		return enemy;
 	}
 	
@@ -58,7 +58,7 @@ public class Player {
 		level = 1;
 	}
 	
-	protected int getCombatLevel(){
+	public int getCombatLevel(){
 		int l = level;
 		
 		for (Treasure t : visibleTreasures){

@@ -52,7 +52,6 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
-        setLocationByPlatform(true);
         setResizable(false);
 
         player1.setText("Jugador 1");
