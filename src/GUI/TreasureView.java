@@ -27,12 +27,12 @@ public class TreasureView extends javax.swing.JPanel {
 		treasureModel = treasure;
 		
 		// Actualizar la imagen
-		treasureImage.setIcon(new ImageIcon("Resources/Treasures/" + treasureModel.getName() + ".jpg"));
+		treasureImage.setIcon(new ImageIcon(this.getClass().getResource("/Resources/Treasures/" + treasureModel.getName() + ".jpg")));
 		
 		// Actualizar labels
 		treasureNameLabel.setText(treasureModel.getName());
 		treasureKindLabel.setText(treasureModel.getType().toString());
-		treasureBonusLabel.setText(Integer.toString(treasureModel.getBonus()));
+		treasureBonusLabel.setText("+" + Integer.toString(treasureModel.getBonus()));
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class TreasureView extends javax.swing.JPanel {
                         .addComponent(treasureKindLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(treasureBonusLabel)
-                        .addGap(0, 106, Short.MAX_VALUE))
+                        .addGap(0, 47, Short.MAX_VALUE))
                     .addComponent(treasureImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

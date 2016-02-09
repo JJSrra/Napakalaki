@@ -24,9 +24,10 @@ public class MainNapakalaki {
 		PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
 		names = namesCapture.getNames();
 		
+		Dice.createInstance(napakalakiView);
+		
 		game.initGame(names);
 		
-		Dice.createInstance(napakalakiView);
 		napakalakiView.setNapakalaki(game);
 		napakalakiView.setVisible(true);
 	}
