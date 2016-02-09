@@ -57,41 +57,23 @@ public class Napakalaki {
 	}
 	
 	private void setEnemies(){
-		ArrayList<Integer> arrayPlayers = new ArrayList();
-		ArrayList<Integer> arrayEnemies = new ArrayList();
-		boolean abort, finished = false;
-		
-		for (int i = 0; i < players.size(); ++i){
-			arrayPlayers.add(i);
-			arrayEnemies.add(i);
+		if (players.size() == 2){
+			players.get(0).setEnemy(players.get(1));
+			players.get(1).setEnemy(players.get(0));
 		}
-		
-		while (!finished){
-			Collections.shuffle(arrayEnemies);
+		else if (players.size() == 3){
+			Random rand = new Random();
+			int number = rand.nextInt(2);
 			
-			abort = false;
-			for (int i = 0; i < arrayPlayers.size() - 1 && !abort; ++i){
-				if (!finished
-						&& arrayPlayers.get(i)   != arrayEnemies.get(i)
-						&& arrayPlayers.get(i+1) != arrayEnemies.get(i+1)){
-					
-					// Asignar al jugador players[arrayPlayers[0]] el enemigo
-					// players[arrayEnemies[0]] y sacarlos de los arrays
-					players.get(arrayPlayers.remove(0))
-							.setEnemy(players.get(arrayEnemies.remove(0)));
-				}
-				else{
-					abort = true;
-				}
-			}
+			players.get(2).setEnemy(players.get(number));
 			
-			if (!abort)
-				finished = true;
+			if (number == 0)
+				players.get(number).setEnemy(players.get(++number));
+			else
+				players.get(number).setEnemy(players.get(--number));
+
+			players.get(number).setEnemy(players.get(2));
 		}
-		
-		// Asignar el último jugador con el último enemigo
-		players.get(arrayPlayers.get(0))
-				.setEnemy(players.get(arrayEnemies.get(0)));
 	}
 	
 	public CombatResult developCombat(){
