@@ -15,5 +15,18 @@ public enum TreasureKind {
 	ONEHAND,
 	BOTHHANDS,
 	HELMET,
-	SHOES
+	SHOES;
+	
+	@Override
+	public String toString(){
+		switch (this){
+			case ARMOR: return "Armadura";
+			case ONEHAND: return "Una mano";
+			case BOTHHANDS: return "Dos manos";
+			case HELMET: return "Casco";
+			case SHOES: return "Calzado";
+		}
+		// Easter egg (esto nunca se va a devolver)
+		return "El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja. 1234567890";
+	}
 }

@@ -80,8 +80,35 @@ public class SpecificBadConsequence extends BadConsequence{
 	
 	@Override
 	public String toString(){
-		return
-				"<html>Tesoros visibles: " + specificVisibleTreasures.toString()
-				+ "<br>Tesoros ocultos: " + specificHiddenTreasures.toString() + "</html>";
+		String bc = "<html>";
+		
+		if (specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty())
+			bc += "No queda mal rollo por cumplir.";
+		else{
+			if (!specificVisibleTreasures.isEmpty()){
+				bc += "Tesoros visibles: ";
+				
+				bc += specificVisibleTreasures.get(0);
+				for (int i = 1; i < specificVisibleTreasures.size(); ++i){
+					bc += ", ";
+					bc += specificVisibleTreasures.get(i);
+				}
+				
+				bc += "<br>";
+			}
+			
+			if (!specificHiddenTreasures.isEmpty()){
+				bc += "Tesoros ocultos: ";
+				
+				bc += specificHiddenTreasures.get(0);
+				for (int i = 1; i < specificHiddenTreasures.size(); ++i){
+					bc += ", ";
+					bc += specificHiddenTreasures.get(i);
+				}
+			}
+		}
+			
+		bc += "</html>";
+		return bc;
 	}
 }
