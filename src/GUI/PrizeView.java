@@ -19,6 +19,7 @@ public class PrizeView extends javax.swing.JPanel {
 		prizeModel = new Prize(treasures, levels);
 		treasureNumberLabel.setText(Integer.toString(prizeModel.getTreasures()));
 		levelsGainedLabel.setText(Integer.toString(prizeModel.getLevel()));
+		repaint();
 	}
 	/**
 	 * Creates new form PrizeView
@@ -55,12 +56,14 @@ public class PrizeView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(treasureNumberLabel)
-                    .addComponent(levelsGainedLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(levelsGainedLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(treasureNumberLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

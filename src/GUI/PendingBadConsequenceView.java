@@ -11,19 +11,23 @@ import NapakalakiGame.BadConsequence;
  *
  * @author usuario
  */
-public class BadConsequenceView extends javax.swing.JPanel {
+public class PendingBadConsequenceView extends javax.swing.JPanel {
 
 	private BadConsequence badConsequenceModel;
 	
 	public void setBadConsequence(BadConsequence badConsequence){
 		badConsequenceModel = badConsequence;
-		badConsequenceLabel.setText(badConsequenceModel.getText());
+		if (badConsequence == null)
+			badConsequenceLabel.setText("");
+		else
+			badConsequenceLabel.setText(badConsequenceModel.toString());
+		
 		repaint();
 	}
 	/**
-	 * Creates new form BadConsequenceView
+	 * Creates new form PendingBadConsequenceView
 	 */
-	public BadConsequenceView() {
+	public PendingBadConsequenceView() {
 		initComponents();
 	}
 
@@ -36,34 +40,24 @@ public class BadConsequenceView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        badConsequenceLabel = new javax.swing.JTextArea();
+        badConsequenceLabel = new javax.swing.JLabel();
 
-        badConsequenceLabel.setEditable(false);
-        badConsequenceLabel.setBackground(javax.swing.UIManager.getDefaults().getColor("FormattedTextField.disabledBackground"));
-        badConsequenceLabel.setColumns(20);
-        badConsequenceLabel.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        badConsequenceLabel.setLineWrap(true);
-        badConsequenceLabel.setRows(3);
-        badConsequenceLabel.setText("Esto es un texto que tiene que ocupar más de una línea.");
-        badConsequenceLabel.setWrapStyleWord(true);
-        jScrollPane2.setViewportView(badConsequenceLabel);
+        badConsequenceLabel.setText("<html>Pending <br> BC</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+            .addComponent(badConsequenceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(badConsequenceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea badConsequenceLabel;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel badConsequenceLabel;
     // End of variables declaration//GEN-END:variables
 }

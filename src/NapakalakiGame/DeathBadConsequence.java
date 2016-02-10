@@ -17,6 +17,6 @@ public class DeathBadConsequence extends NumericBadConsequence{
 	
 	@Override
 	public String toString() {
-		return text;
+		return "<html>Estás muerto.<br>Descarta todos tus tesoros.</html>";
 	}
 }

@@ -80,9 +80,9 @@ public class SpecificBadConsequence extends BadConsequence{
 	
 	@Override
 	public String toString(){
-		return text
-				+ "\n\tNiveles = " + Integer.toString(levels)
-				+ "\n\tTesoros visibles específicos = " + specificVisibleTreasures.toString()
-				+ "\n\tTesoros ocultos específicos = " + specificHiddenTreasures.toString();
+		return
+				"<html>Niveles: " + Integer.toString(levels)
+				+ "<br>Visibles: " + specificVisibleTreasures.toString()
+				+ "<br>Ocultos: " + specificHiddenTreasures.toString() + "</html>";
 	}
 }

@@ -45,7 +45,7 @@
             </Property>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="3"/>
-            <Property name="text" type="java.lang.String" value="Soy un texto de palabras aleatorias sin sentido que se ha colado en tu pantalla."/>
+            <Property name="text" type="java.lang.String" value="Esto es un texto que tiene que ocupar m&#xe1;s de una l&#xed;nea."/>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>
