@@ -25,19 +25,11 @@ public class PlayerView extends javax.swing.JPanel {
 	
 	public void setPlayer(Player player){
 		playerModel = player;
-		
-		if (player.getName().length() > 20)
-			playerNameLabel.setText(player.getName().substring(0,19) + "…");
-		else
-			playerNameLabel.setText(player.getName());
-		
+
+		playerNameLabel.setText(player.toString());
+		enemyNameLabel.setText(player.getEnemy().toString());
 		levelLabel.setText(Integer.toString(player.getLevels()));
 		combatLevelLabel.setText(Integer.toString(player.getCombatLevel()));
-		
-		if (player.getEnemy().getName().length() > 20)
-			enemyNameLabel.setText(player.getEnemy().getName().substring(0,19) + "…");
-		else
-			enemyNameLabel.setText(player.getEnemy().getName());
 		
 		stealTreasureButton.setEnabled(playerModel.canISteal() && playerModel.getEnemy().canYouGiveMeATreasure());
 		makeVisibleButton.setEnabled(true);
@@ -149,23 +141,20 @@ public class PlayerView extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(playerNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(TextLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(levelLabel))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(combatLevelLabel)))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(enemyNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(enemyNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(playerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(TextLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(levelLabel))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combatLevelLabel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

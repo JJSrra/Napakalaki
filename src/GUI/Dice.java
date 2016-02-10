@@ -45,7 +45,8 @@ public class Dice extends javax.swing.JDialog {
   }
   
   private int privateNextNumber() {
-    return (generator.nextInt(6)+1);
+	  return 1;////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //return (generator.nextInt(6)+1);
   }
   
   private ActionListener diceAction = new ActionListener() {
