@@ -166,7 +166,7 @@ public class PlayerView extends javax.swing.JPanel {
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tesoros visibles"));
         jScrollPane1.setViewportView(visibleTreasures);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pendiente"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mal rollo pendiente"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

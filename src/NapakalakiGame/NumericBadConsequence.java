@@ -64,8 +64,7 @@ public class NumericBadConsequence extends BadConsequence{
 	@Override
 	public String toString() {
 		return
-				"<html>Niveles: " + Integer.toString(levels)
-				+ "<br>Visibles: " + Integer.toString(nVisibleTreasures)
-				+ "<br>Ocultos: " + Integer.toString(nHiddenTreasures) + "</html>";
+				"<html>Tesoros visibles: " + Integer.toString(nVisibleTreasures)
+				+ "<br>Tesoros ocultos: " + Integer.toString(nHiddenTreasures) + "</html>";
 	}
 }
