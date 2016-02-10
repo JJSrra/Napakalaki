@@ -96,6 +96,10 @@ public class Player {
 		pendingBadConsequence = b;
 	}
 	
+	public BadConsequence getPendingBadConsequence(){
+		return pendingBadConsequence;
+	}
+	
 	private void applyPrize(Monster m){
 		int nLevels = m.getLevelsGained();
 		
