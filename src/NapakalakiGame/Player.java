@@ -186,7 +186,7 @@ public class Player {
 	
 	public CombatResult combat(Monster m){
 		int myLevel = getCombatLevel();
-		int monsterLevel = m.getCombatLevel();
+		int monsterLevel = getOponentLevel(m);
 		CombatResult combatResult;
 		
 		if (myLevel > monsterLevel){
@@ -327,6 +327,6 @@ public class Player {
 	
 	@Override
 	public String toString(){
-		return name + ", Nivel: " + level;
+		return name;
 	}
 }

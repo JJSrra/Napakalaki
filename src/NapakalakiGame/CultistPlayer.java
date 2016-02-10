@@ -57,4 +57,9 @@ public class CultistPlayer extends Player{
 	public static int getTotalCultistPlayers(){
 		return totalCultistPlayers;
 	}
+	
+	@Override
+	public String toString(){
+		return getName() + " (sectario)";
+	}
 }

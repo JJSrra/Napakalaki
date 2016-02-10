@@ -85,6 +85,12 @@ public class Napakalaki {
 			
 			// Actualizar los jugadores
 			players.set(players.indexOf(currentPlayer), convertedPlayer);
+			
+			for (Player p : players){
+				if (p.getEnemy() == currentPlayer)
+					p.setEnemy(convertedPlayer);
+			}
+			
 			currentPlayer = convertedPlayer;
 		}
 		
