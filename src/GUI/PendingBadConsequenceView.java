@@ -42,7 +42,7 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
 
         badConsequenceLabel = new javax.swing.JLabel();
 
-        badConsequenceLabel.setText("<html>Pending <br> BC</html>");
+        badConsequenceLabel.setText("<html>Pending <br> BC <br> Consequence</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

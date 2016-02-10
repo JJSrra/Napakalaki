@@ -26,22 +26,22 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="playerView1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="monsterView1" pref="221" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="monsterView1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="playerView1" min="-2" max="-2" attributes="0"/>
           <Component id="monsterView1" min="-2" max="-2" attributes="0"/>
+          <Component id="playerView1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="GUI.PlayerView" name="playerView1">
-    </Component>
     <Component class="GUI.MonsterView" name="monsterView1">
+    </Component>
+    <Component class="GUI.PlayerView" name="playerView1">
     </Component>
   </SubComponents>
 </Form>
