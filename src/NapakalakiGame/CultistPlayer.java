@@ -42,11 +42,15 @@ public class CultistPlayer extends Player{
 	protected Treasure giveMeATreasure(){
 		Random rand = new Random();
 		int index = rand.nextInt(getVisibleTreasures().size());
-		return getVisibleTreasures().get(index);
+		
+		Treasure treasure = getVisibleTreasures().remove(index);
+		dieIfNoTreasures();
+		
+		return treasure;
 	}
 	
 	@Override
-	protected boolean canYouGiveMeATreasure(){
+	public boolean canYouGiveMeATreasure(){
 		return !getVisibleTreasures().isEmpty();
 	}
 	

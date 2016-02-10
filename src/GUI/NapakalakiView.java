@@ -5,7 +5,9 @@
  */
 package GUI;
 
+import NapakalakiGame.CombatResult;
 import NapakalakiGame.Napakalaki;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,7 +28,10 @@ public class NapakalakiView extends javax.swing.JFrame {
 		
 		playerView.setPlayer(napakalakiModel.getCurrentPlayer());
 		playerView.setNapakalaki(napakalakiModel);
+		
+		monsterView.setVisible(false);
 		monsterView.setMonster(napakalakiModel.getCurrentMonster());
+		repaint();
 	}
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -46,12 +51,32 @@ public class NapakalakiView extends javax.swing.JFrame {
         combatInfoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Napakalaki");
+        setLocationByPlatform(true);
+        setResizable(false);
 
         nextTurnButton.setText("Siguiente turno");
+        nextTurnButton.setEnabled(false);
+        nextTurnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextTurnButtonActionPerformed(evt);
+            }
+        });
 
         combatButton.setText("¡Combatir!");
+        combatButton.setEnabled(false);
+        combatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combatButtonActionPerformed(evt);
+            }
+        });
 
         meetMonsterButton.setText("Descubrir monstruo");
+        meetMonsterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meetMonsterButtonActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del combate"));
 
@@ -61,12 +86,12 @@ public class NapakalakiView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(combatInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(combatInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(combatInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(combatInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -82,7 +107,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                     .addComponent(nextTurnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(monsterView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 54, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -92,7 +117,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addComponent(monsterView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(meetMonsterButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(combatButton)
@@ -106,6 +131,52 @@ public class NapakalakiView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void meetMonsterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meetMonsterButtonActionPerformed
+        combatButton.setEnabled(true);
+		meetMonsterButton.setEnabled(false);
+		
+		monsterView.setVisible(true);
+		playerView.disableButtons();
+		repaint();
+    }//GEN-LAST:event_meetMonsterButtonActionPerformed
+
+    private void combatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combatButtonActionPerformed
+        combatButton.setEnabled(false);
+		CombatResult result = napakalakiModel.developCombat();
+		
+		if (result == CombatResult.WINGAME){
+			JOptionPane.showMessageDialog(this, "¡Felicidades, " + napakalakiModel.getCurrentPlayer().getName() + "!"
+											+ "\n¡Has ganado la partida!");
+			
+			System.exit(0);
+		}
+		else if (result == CombatResult.WIN){
+			combatInfoLabel.setText("¡Has ganado el combate!");
+			setNapakalaki(napakalakiModel);
+		}
+		else if (result == CombatResult.LOSE){
+			combatInfoLabel.setText("<html>Has perdido el combate.<br>Te toca cumplir el mal rollo.</html>");
+			setNapakalaki(napakalakiModel);
+		}
+		else{
+			combatInfoLabel.setText("<html>Has perdido el combate y ahora eres sectario.<br>Te toca cumplir el mal rollo.</html>");
+			setNapakalaki(napakalakiModel);
+		}
+		
+		nextTurnButton.setEnabled(true);
+    }//GEN-LAST:event_combatButtonActionPerformed
+
+    private void nextTurnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTurnButtonActionPerformed
+        if (!napakalakiModel.nextTurn())
+			combatInfoLabel.setText("<html>Queda mal rollo por cumplir o tienes más de 4 tesoros ocultos.</html>");
+		else{
+			combatInfoLabel.setText("");
+			meetMonsterButton.setEnabled(true);
+			nextTurnButton.setEnabled(false);
+			setNapakalaki(napakalakiModel);
+		}
+    }//GEN-LAST:event_nextTurnButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

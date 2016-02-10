@@ -1,6 +1,7 @@
 
 package GUI;
 
+import NapakalakiGame.Napakalaki;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -13,6 +14,7 @@ import javax.swing.Timer;
 public class Dice extends javax.swing.JDialog {
   
   private static Dice instance = null;
+  private Napakalaki napakalakiModel;
   private Random generator=new Random();
   private Timer timerDice;
   private int value;
@@ -28,11 +30,14 @@ public class Dice extends javax.swing.JDialog {
         System.exit(0);
       }
     });
+	
+	napakalakiModel = Napakalaki.getInstance();
   }
 
   public static void createInstance (java.awt.Frame parent) {
-    if (instance == null)
+    if (instance == null){
       instance = new Dice (parent);
+	}
   }
   
   public static Dice getInstance() {	  
@@ -53,8 +58,8 @@ public class Dice extends javax.swing.JDialog {
     };
   
   public int nextNumber () {
-    return nextNumber ("Haz clic sobre el dado",
-            "para detenerlo");
+    return nextNumber ("Turno de " + napakalakiModel.getCurrentPlayer().getName() +".",
+            "Haz clic sobre el dado para detenerlo.");
     
   }
   public int nextNumber (String message1, String message2) {

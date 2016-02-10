@@ -10,6 +10,7 @@ import NapakalakiGame.Player;
 import NapakalakiGame.Treasure;
 import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -38,6 +39,11 @@ public class PlayerView extends javax.swing.JPanel {
 		else
 			enemyNameLabel.setText(player.getEnemy().getName());
 		
+		stealTreasureButton.setEnabled(playerModel.canISteal() && playerModel.getEnemy().canYouGiveMeATreasure());
+		makeVisibleButton.setEnabled(true);
+		discardButton.setEnabled(true);
+		discardAllButton.setEnabled(true);
+		
 		fillTreasurePanel(visibleTreasures, playerModel.getVisibleTreasures());
 		fillTreasurePanel(hiddenTreasures, playerModel.getHiddenTreasures());
 		pendingBCView.setBadConsequence(playerModel.getPendingBadConsequence());
@@ -47,6 +53,13 @@ public class PlayerView extends javax.swing.JPanel {
 	
 	public void setNapakalaki(Napakalaki napakalaki){
 		napakalakiModel = napakalaki;
+	}
+	
+	public void disableButtons(){
+		stealTreasureButton.setEnabled(false);
+		makeVisibleButton.setEnabled(false);
+		discardButton.setEnabled(false);
+		discardAllButton.setEnabled(false);
 	}
 	
 	private void fillTreasurePanel(JPanel aPanel, ArrayList<Treasure> aList){
@@ -173,8 +186,18 @@ public class PlayerView extends javax.swing.JPanel {
         );
 
         stealTreasureButton.setText("Robar tesoro");
+        stealTreasureButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stealTreasureButtonActionPerformed(evt);
+            }
+        });
 
         discardButton.setText("Descartar");
+        discardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardButtonActionPerformed(evt);
+            }
+        });
 
         makeVisibleButton.setText("Hacer visible");
         makeVisibleButton.setPreferredSize(new java.awt.Dimension(122, 23));
@@ -185,6 +208,11 @@ public class PlayerView extends javax.swing.JPanel {
         });
 
         discardAllButton.setText("Descartar todo");
+        discardAllButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardAllButtonActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tesoros ocultos"));
         jScrollPane2.setViewportView(hiddenTreasures);
@@ -269,6 +297,29 @@ public class PlayerView extends javax.swing.JPanel {
 		napakalakiModel.makeTrasuresVisible(selHidden);
 		setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_makeVisibleButtonActionPerformed
+
+    private void stealTreasureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stealTreasureButtonActionPerformed
+        playerModel.stealTreasure();
+		setPlayer(napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_stealTreasureButtonActionPerformed
+
+    private void discardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardButtonActionPerformed
+        ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
+		ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasures);
+
+		napakalakiModel.discardHiddenTreasures(selHidden);
+		napakalakiModel.discardVisibleTreasures(selVisible);
+		setPlayer(napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_discardButtonActionPerformed
+
+    private void discardAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardAllButtonActionPerformed
+        int confirm = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres descartar todos tus tesoros?", "Descartar todo", JOptionPane.YES_NO_OPTION);
+		
+		if (confirm == 0){
+			playerModel.discardAllTreasures();
+			setPlayer(napakalakiModel.getCurrentPlayer());
+		}
+    }//GEN-LAST:event_discardAllButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

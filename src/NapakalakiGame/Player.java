@@ -28,6 +28,7 @@ public class Player {
 	public Player(String name){
 		this.name = name;
 		dead = true;
+		canISteal = true;
 		visibleTreasures = new ArrayList<>();
 		hiddenTreasures = new ArrayList<>();
 		pendingBadConsequence = new NumericBadConsequence("",0,0,0); // BC vacía
@@ -166,7 +167,7 @@ public class Player {
 		return treasureNumber;
 	}
 	
-	private void dieIfNoTreasures(){
+	protected void dieIfNoTreasures(){
 		if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
 			dead = true;
 	}
@@ -292,14 +293,18 @@ public class Player {
 	protected Treasure giveMeATreasure(){
 		Random rand = new Random();
 		int index = rand.nextInt(hiddenTreasures.size());
-		return hiddenTreasures.get(index);
+		
+		Treasure treasure = hiddenTreasures.remove(index);
+		dieIfNoTreasures();
+		
+		return treasure;
 	}
 	
 	public boolean canISteal(){
 		return canISteal;
 	}
 	
-	protected boolean canYouGiveMeATreasure(){
+	public boolean canYouGiveMeATreasure(){
 		return !hiddenTreasures.isEmpty();
 	}
 	

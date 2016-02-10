@@ -190,11 +190,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Robar tesoro"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stealTreasureButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="discardButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Descartar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="makeVisibleButton">
       <Properties>
@@ -211,6 +217,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Descartar todo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardAllButtonActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <Properties>
